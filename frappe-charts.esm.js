@@ -4008,3 +4008,134 @@ class Chart {
 // Above is a copy of frappe-charts/dist/frappe-charts.esm.js
 // 90b684daf1c3457c7a901b808520782f1486f186. No changes from upstream except for
 // the commented out "export {...}".
+
+var chart;
+var data = {
+	labels: [],
+	datasets: [],
+};
+
+function data_add_ds(ds_prefix) {
+	var dses = data['datasets'];
+	var ds_new_idx = dses.length;
+	var ds_name = ds_prefix + ':' + ds_new_idx
+
+	console.log('adding new dataset %s at index %d', ds_name, ds_new_idx);
+	ds = { name: ds_name, values: [], chartType: 'line' };
+	data['datasets'].push(ds);
+	return ds;
+}
+
+function json_process(evt) {
+	var fname = evt.detail['fname'];
+	var jsn = evt.detail['json'];
+	var p = evt.detail['pent'];
+	p.innerHTML += ' ➡️ process ops';
+
+	if (!jsn.hasOwnProperty('ops')) {
+		p.innerHTML += ' ❌';
+		console.log('malformed json: missing ops array');
+		return null;
+	}
+	var ops = jsn['ops'];
+	if (ops.length <= 0) {
+		p.innerHTML += ' (empty)';
+		return null;
+	}
+	var ds = data_add_ds(fname + ':duration');
+
+	// walk through each op in the array
+	for (var i = 0, o; o = ops[i]; i++) {
+		if (!o.hasOwnProperty('duration')) {
+			console.log('op is missing duration: %o', o);
+			continue;
+		}
+		ds['values'].push(o['duration']);
+		if (i >= data['labels'].length) {
+			// not sure what to use X-axis for, age is tricky so
+			// just use index for now.
+			data['labels'].push(i);
+		}
+	}
+	p.innerHTML += ' ➡️ chart ✔️';
+	return new Chart("#chart",
+		{
+			title: 'Ceph OSD Historic Ops',
+			type: 'line',
+			isNavigable: 1,
+			height: 600,
+			animate: 1,
+			lineOptions: { dotSize: 8, hideLine: 1 },
+			axisOptions: { xAxisMode: 'tick' },
+			data: data,
+			truncateLegends: 1,
+		});
+}
+
+function file_read_handle(p, f, lines) {
+	var jsn;
+	console.log('parsing line buffer from %s', f.name);
+
+	p.innerHTML = '<strong>' + escape(f.name) + '</strong> (' + f.size
+	     + ' bytes) ➡️ parse json';
+	try {
+		jsn = JSON.parse(lines);
+	} catch (e) {
+		console.log('failed to parse %s: %o', f.name, e.message);
+		p.innerHTML += ' ❌';
+		return
+	}
+
+	var evt = new CustomEvent('json-ready',
+				  {'detail': {'fname': escape(f.name),
+					      'pent': p,
+					      'json': jsn}
+				  });
+	files_input = document.getElementById('files');
+	return files_input.dispatchEvent(evt);
+}
+
+function files_process(evt) {
+	var files = evt.target.files; // FileList object
+	var await = files.length;
+	var lst = document.getElementById('list');
+
+	for (var i = 0, f; f = files[i]; i++) {
+		fr = new FileReader();
+		fr.onload = (function(theFile) {
+			return function(e) {
+				var p = document.createElement("p");
+				lst.appendChild(p);
+				file_read_handle(p, theFile, e.target.result);
+				await--;
+				if (await == 0) {
+					console.log("all %d file(s) parsed",
+						files.length)
+				}
+			};
+		})(f);
+		fr.readAsText(f);
+	}
+}
+
+btn = document.getElementById("btn_export");
+btn.style.display='none';
+btn.addEventListener('click', function (event) {
+	event.preventDefault();
+	chart.export();
+});
+
+files_input = document.getElementById('files');
+files_input.addEventListener('change', files_process, false);
+// we fire a custom event when json file content has been parsed
+files_input.addEventListener('json-ready', function (event) {
+	chart = json_process(event, chart);
+	// XXX should be able to check instanceof Chart instead...
+	if (chart == null) {
+		btn.style.display='none';
+		return;
+	}
+	// reveal export button
+	btn = document.getElementById("btn_export");
+	btn.style.display='block';
+});
