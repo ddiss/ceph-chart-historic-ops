@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ceph: Chart Historic Ops</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <h2>Ceph: Chart Historic Ops</h2>
+
+    <p><strong>Usage:</strong>
+      <ul>
+        <li>Capture the output from:
+	  <pre>ceph daemon osd.X dump_historic_ops</pre></li>
+        <li>Open the capture file(s) using the button below</li>
+      </ul>
+    </p>
+    <p><strong>Note: </strong>All files are processed locally by your browser.</p>
+
+    <input type="file" id="files" name="files[]" multiple />
+    <div id="chart"></div>
+    <button id="btn_export" class="favorite styled" type="button">
+      Export Chart
+    </button>
+    <div id="list"></div>
+    <script src="./frappe-charts.esm.js"></script>
+  </body>
+</html>
