@@ -4015,6 +4015,154 @@ var data = {
 	datasets: [],
 };
 
+function data_val_lookup(xval_i, yval) {
+	var dses = data['datasets'];
+	if (dses.length <= 0) {
+		return null;
+	}
+
+	for (var i = 0, ds; ds = dses[i]; i++) {
+		var vals = ds['values'];
+		if (vals.length <= xval_i) {
+			continue;
+		}
+		if (vals[xval_i] == yval) {
+			var op = ds['ops'][xval_i];
+			// console.log('found op at %o, %o: %o', xval_i, yval, op);
+			return op;
+		}
+	}
+	// console.log('failed to lookup op at %o, %o', xval_i, yval);
+	return null;
+}
+
+function pad_slice(num, pad_num) {
+	n = num.toString()
+	console.log('padding num %s to %d (cur len %d)', num, pad_num, n.length);
+	if (n.length > pad_num) {
+		return n.slice(0, pad_num - n.length);
+	}
+	return n.padStart(pad_num, '0');
+}
+
+function op_detail_chart(op) {
+	// need more than 1 event, as we're interested in time deltas
+	if (!op.hasOwnProperty('type_data')
+	 || !op.hasOwnProperty('description')) {
+		console.log('op missing type_data or description: %o', op);
+		return null;
+	}
+	var td = op['type_data'];
+	if (!td.hasOwnProperty('events') || td['events'].length <= 1) {
+		console.log('op missing events: %o', op);
+		return null;
+	}
+	// XXX sanity check cumulative event times vs duration
+	var remainder = op['duration'];
+	var odata = {
+		labels: [],
+		datasets: [
+			{
+				values: [],
+			}
+		]
+	};
+	var ds = [];
+	var events = td['events'];
+
+	for (var i = 0, ope; ope = events[i]; i++) {
+		var prev_t;
+		var delta_t;
+
+		if (!ope.hasOwnProperty('event')
+		 || !ope.hasOwnProperty('time')) {
+			console.log('event missing details: %o', ope);
+			return null;
+		}
+
+		// handle nsec precision by splitting
+		t = ope['time'].split('.');
+		if (t.length != 2) {
+			console.log('invalid event time: %o', ope);
+			return null;
+		}
+
+		// XXX Date.parse("2020-02-20 16:03:46") (nsec=234238) works on
+		// ff and chromium, but it might not everywhere.
+		t.push(Date.parse(t[0]));
+		if (isNaN(t[2])) {
+			console.log('invalid event time: %o', ope);
+			return null;
+		}
+		t.shift();	// [datestr, us, ms] -> [us, ms]
+		t[0] = Number(t[0]);
+		if (isNaN(t[0])) {
+			return null;
+		}
+
+		if (i == 0) {
+			if (ope['event'] != "initiated") {
+				console.log('missing \"initiated\" event in %o',
+					    ope);
+			}
+			prev_t = t;
+			continue;
+		}
+		delta_t = [(t[1] - prev_t[1]) / 1000, (t[0] - prev_t[0])]; // [s, us]
+		while (delta_t[1] < 0) {
+			delta_t[0]--;
+			delta_t[1] += Math.pow(10, 6);
+		}
+		odata['labels'].push(ope['event']);
+		var nval = Number(delta_t[0] + '.' + pad_slice(delta_t[1], 6));
+		if (isNaN(nval)) {
+			return null;
+		}
+		remainder -= nval;
+		odata['datasets'][0]['values'].push(Number(nval));
+		prev_t = t;
+	}
+	if (remainder > 0.0001) {
+		console.log('%o remainder is unexpectadly high: %f',
+			odata, remainder);
+	}
+
+	div_el = document.getElementById('detail-chart');
+	var detail_chart = new Chart(div_el,
+		{
+			title: op['description'],
+			type: 'percentage',
+			animate: 1,
+			data: odata,
+		});
+	div_el.scrollIntoView();
+	return detail_chart;
+}
+
+function data_select_handle(e) {
+	// e contains index and value of current datapoint
+	console.log('selected datapoint %o', e);
+	var xval_i = e['index'];
+	// it'd be much more efficient if e included ds values entry
+	var yvals = e['values'];
+
+	if (yvals.length <= 0) {
+		return;
+	}
+	if (yvals.length > 1) {
+		console.log('multiple yvals selected, using first');
+	}
+	var yval = yvals[0];
+
+	var op = data_val_lookup(xval_i, yval);
+	if (op == null) {
+		return;
+	}
+
+	// XXX move to new event?
+	op_detail_chart(op);
+}
+
 function data_add_ds(ds_prefix) {
 	var dses = data['datasets'];
 	var ds_new_idx = dses.length;
@@ -4059,7 +4207,7 @@ function json_process(evt) {
 		}
 	}
 	p.innerHTML += ' ➡️ chart ✔️';
-	return new Chart("#chart",
+	return new Chart("#summary-chart",
 		{
 			title: 'Ceph OSD Historic Ops',
 			type: 'line',
@@ -4136,6 +4284,9 @@ files_input.addEventListener('json-ready', function (event) {
 		btn.style.display='none';
 		return;
 	}
+	chart.parent.addEventListener('data-select', (e) => {
+		data_select_handle(e);
+	});
 	// reveal export button
 	btn = document.getElementById("btn_export");
 	btn.style.display='block';
