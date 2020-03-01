@@ -4021,7 +4021,7 @@ function data_add_ds(ds_prefix) {
 	var ds_name = ds_prefix + ':' + ds_new_idx
 
 	console.log('adding new dataset %s at index %d', ds_name, ds_new_idx);
-	ds = { name: ds_name, values: [], chartType: 'line' };
+	ds = { name: ds_name, values: [], ops: [], chartType: 'line' };
 	data['datasets'].push(ds);
 	return ds;
 }
@@ -4044,13 +4044,14 @@ function json_process(evt) {
 	}
 	var ds = data_add_ds(fname + ':duration');
 
-	// walk through each op in the array
 	for (var i = 0, o; o = ops[i]; i++) {
 		if (!o.hasOwnProperty('duration')) {
 			console.log('op is missing duration: %o', o);
 			continue;
 		}
+		// values is used by frappe, but also stash entire op for breakdown
 		ds['values'].push(o['duration']);
+		ds['ops'].push(o);
 		if (i >= data['labels'].length) {
 			// not sure what to use X-axis for, age is tricky so
 			// just use index for now.
