@@ -1,0 +1,1299 @@
+{
+    "size": 20,
+    "duration": 600,
+    "ops": [
+        {
+            "description": "osd_op(client.4294.0:2 4.1e 4:7a870726:::benchmark_data_loewe_23988_object1:head [set-alloc-hint object_size 4194304 write_size 4194304,write 0~4194304] snapc 0=[] ondisk+write+known_if_redirected e26)",
+            "initiated_at": "2020-03-02 13:50:55.688195",
+            "age": 360.53505301199999,
+            "duration": 1.8489853140000001,
+            "type_data": {
+                "flag_point": "commit sent; apply or cleanup",
+                "client_info": {
+                    "client": "client.4294",
+                    "client_addr": "10.161.8.192:0/766400216",
+                    "tid": 2
+                },
+                "events": [
+                    {
+                        "time": "2020-03-02 13:50:55.688195",
+                        "event": "initiated"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.688195",
+                        "event": "header_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.685040",
+                        "event": "throttled"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.688234",
+                        "event": "all_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.688243",
+                        "event": "dispatched"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.688304",
+                        "event": "queued_for_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.688451",
+                        "event": "reached_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.688799",
+                        "event": "started"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.689150",
+                        "event": "waiting for subops from 1,2"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:56.324012",
+                        "event": "op_commit"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.432017",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.537052",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.537098",
+                        "event": "commit_sent"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.537180",
+                        "event": "done"
+                    }
+                ]
+            }
+        },
+        {
+            "description": "osd_op(client.4294.0:4 4.25 4:a4d89558:::benchmark_data_loewe_23988_object3:head [set-alloc-hint object_size 4194304 write_size 4194304,write 0~4194304] snapc 0=[] ondisk+write+known_if_redirected e26)",
+            "initiated_at": "2020-03-02 13:50:55.691613",
+            "age": 360.53163443,
+            "duration": 1.8521190199999999,
+            "type_data": {
+                "flag_point": "commit sent; apply or cleanup",
+                "client_info": {
+                    "client": "client.4294",
+                    "client_addr": "10.161.8.192:0/766400216",
+                    "tid": 4
+                },
+                "events": [
+                    {
+                        "time": "2020-03-02 13:50:55.691613",
+                        "event": "initiated"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.691613",
+                        "event": "header_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.688364",
+                        "event": "throttled"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.691638",
+                        "event": "all_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.691643",
+                        "event": "dispatched"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.691685",
+                        "event": "queued_for_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.691803",
+                        "event": "reached_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.692060",
+                        "event": "started"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.692326",
+                        "event": "waiting for subops from 1,2"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:56.860436",
+                        "event": "op_commit"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.431685",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.543612",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.543659",
+                        "event": "commit_sent"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.543732",
+                        "event": "done"
+                    }
+                ]
+            }
+        },
+        {
+            "description": "osd_op(client.4294.0:5 4.16 4:68c0b6a6:::benchmark_data_loewe_23988_object4:head [set-alloc-hint object_size 4194304 write_size 4194304,write 0~4194304] snapc 0=[] ondisk+write+known_if_redirected e26)",
+            "initiated_at": "2020-03-02 13:50:55.694966",
+            "age": 360.52828173900002,
+            "duration": 2.2984709639999998,
+            "type_data": {
+                "flag_point": "commit sent; apply or cleanup",
+                "client_info": {
+                    "client": "client.4294",
+                    "client_addr": "10.161.8.192:0/766400216",
+                    "tid": 5
+                },
+                "events": [
+                    {
+                        "time": "2020-03-02 13:50:55.694966",
+                        "event": "initiated"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.694966",
+                        "event": "header_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.691730",
+                        "event": "throttled"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.694983",
+                        "event": "all_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.694987",
+                        "event": "dispatched"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.695022",
+                        "event": "queued_for_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.695079",
+                        "event": "reached_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.695258",
+                        "event": "started"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.695450",
+                        "event": "waiting for subops from 1,2"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:56.860572",
+                        "event": "op_commit"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.431758",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.993308",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.993352",
+                        "event": "commit_sent"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.993437",
+                        "event": "done"
+                    }
+                ]
+            }
+        },
+        {
+            "description": "osd_op(client.4294.0:7 4.17 4:e9050e29:::benchmark_data_loewe_23988_object6:head [set-alloc-hint object_size 4194304 write_size 4194304,write 0~4194304] snapc 0=[] ondisk+write+known_if_redirected e26)",
+            "initiated_at": "2020-03-02 13:50:55.701259",
+            "age": 360.52198837100002,
+            "duration": 1.756710371,
+            "type_data": {
+                "flag_point": "commit sent; apply or cleanup",
+                "client_info": {
+                    "client": "client.4294",
+                    "client_addr": "10.161.8.192:0/766400216",
+                    "tid": 7
+                },
+                "events": [
+                    {
+                        "time": "2020-03-02 13:50:55.701259",
+                        "event": "initiated"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.701259",
+                        "event": "header_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.697817",
+                        "event": "throttled"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.701276",
+                        "event": "all_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.701280",
+                        "event": "dispatched"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.701315",
+                        "event": "queued_for_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.701493",
+                        "event": "reached_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.701824",
+                        "event": "started"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.702151",
+                        "event": "waiting for subops from 1,2"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:56.877827",
+                        "event": "op_commit"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.429467",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.457830",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.457883",
+                        "event": "commit_sent"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.457970",
+                        "event": "done"
+                    }
+                ]
+            }
+        },
+        {
+            "description": "osd_op(client.4294.0:15 4.19 4:99108238:::benchmark_data_loewe_23988_object14:head [set-alloc-hint object_size 4194304 write_size 4194304,write 0~4194304] snapc 0=[] ondisk+write+known_if_redirected e26)",
+            "initiated_at": "2020-03-02 13:50:55.704727",
+            "age": 360.518520572,
+            "duration": 1.832649813,
+            "type_data": {
+                "flag_point": "commit sent; apply or cleanup",
+                "client_info": {
+                    "client": "client.4294",
+                    "client_addr": "10.161.8.192:0/766400216",
+                    "tid": 15
+                },
+                "events": [
+                    {
+                        "time": "2020-03-02 13:50:55.704727",
+                        "event": "initiated"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.704727",
+                        "event": "header_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.701350",
+                        "event": "throttled"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.704744",
+                        "event": "all_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.704748",
+                        "event": "dispatched"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.704782",
+                        "event": "queued_for_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.704855",
+                        "event": "reached_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.705061",
+                        "event": "started"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.705275",
+                        "event": "waiting for subops from 1,2"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:56.872980",
+                        "event": "op_commit"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.432100",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.537301",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.537322",
+                        "event": "commit_sent"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.537377",
+                        "event": "done"
+                    }
+                ]
+            }
+        },
+        {
+            "description": "osd_repop(client.4294.0:10 4.3e e26/24 4:7e8a51a5:::benchmark_data_loewe_23988_object9:head v 26'1)",
+            "initiated_at": "2020-03-02 13:50:55.715467",
+            "age": 360.50778087899999,
+            "duration": 1.618353014,
+            "type_data": {
+                "flag_point": "commit sent; apply or cleanup",
+                "events": [
+                    {
+                        "time": "2020-03-02 13:50:55.715467",
+                        "event": "initiated"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.715467",
+                        "event": "header_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.712526",
+                        "event": "throttled"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.715484",
+                        "event": "all_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.715488",
+                        "event": "dispatched"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.715521",
+                        "event": "queued_for_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.815885",
+                        "event": "reached_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.815946",
+                        "event": "started"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.333692",
+                        "event": "commit_sent"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.333820",
+                        "event": "done"
+                    }
+                ]
+            }
+        },
+        {
+            "description": "osd_repop(client.4294.0:1 4.21 e26/24 4:8495d2f8:::benchmark_data_loewe_23988_object0:head v 26'1)",
+            "initiated_at": "2020-03-02 13:50:55.720216",
+            "age": 360.50303194700001,
+            "duration": 1.6136720630000001,
+            "type_data": {
+                "flag_point": "commit sent; apply or cleanup",
+                "events": [
+                    {
+                        "time": "2020-03-02 13:50:55.720216",
+                        "event": "initiated"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.720216",
+                        "event": "header_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.708407",
+                        "event": "throttled"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.720234",
+                        "event": "all_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.720238",
+                        "event": "dispatched"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.720275",
+                        "event": "queued_for_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.816963",
+                        "event": "reached_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.817016",
+                        "event": "started"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.333784",
+                        "event": "commit_sent"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.333888",
+                        "event": "done"
+                    }
+                ]
+            }
+        },
+        {
+            "description": "osd_repop(client.4294.0:3 4.2b e26/24 4:d6b4f965:::benchmark_data_loewe_23988_object2:head v 26'1)",
+            "initiated_at": "2020-03-02 13:50:55.722621",
+            "age": 360.50062652299999,
+            "duration": 1.6125571379999999,
+            "type_data": {
+                "flag_point": "commit sent; apply or cleanup",
+                "events": [
+                    {
+                        "time": "2020-03-02 13:50:55.722621",
+                        "event": "initiated"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.722621",
+                        "event": "header_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.720311",
+                        "event": "throttled"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.722639",
+                        "event": "all_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.722642",
+                        "event": "dispatched"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:55.722675",
+                        "event": "queued_for_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:56.309494",
+                        "event": "reached_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:56.309554",
+                        "event": "started"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.335092",
+                        "event": "commit_sent"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.335178",
+                        "event": "done"
+                    }
+                ]
+            }
+        },
+        {
+            "description": "osd_repop(client.4294.0:26 4.34 e26/24 4:2f293f23:::benchmark_data_loewe_23988_object25:head v 26'2)",
+            "initiated_at": "2020-03-02 13:50:57.591638",
+            "age": 358.63161012799998,
+            "duration": 1.665592731,
+            "type_data": {
+                "flag_point": "commit sent; apply or cleanup",
+                "events": [
+                    {
+                        "time": "2020-03-02 13:50:57.591638",
+                        "event": "initiated"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.591638",
+                        "event": "header_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.588677",
+                        "event": "throttled"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.591671",
+                        "event": "all_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.591678",
+                        "event": "dispatched"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.591736",
+                        "event": "queued_for_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.591871",
+                        "event": "reached_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:57.591923",
+                        "event": "started"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:59.257146",
+                        "event": "commit_sent"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:59.257230",
+                        "event": "done"
+                    }
+                ]
+            }
+        },
+        {
+            "description": "osd_repop(client.4294.0:33 4.2 e26/24 4:425d3fa9:::benchmark_data_loewe_23988_object32:head v 26'1)",
+            "initiated_at": "2020-03-02 13:50:58.037570",
+            "age": 358.18567762700002,
+            "duration": 1.6900134600000001,
+            "type_data": {
+                "flag_point": "commit sent; apply or cleanup",
+                "events": [
+                    {
+                        "time": "2020-03-02 13:50:58.037570",
+                        "event": "initiated"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:58.037570",
+                        "event": "header_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:58.034547",
+                        "event": "throttled"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:58.037594",
+                        "event": "all_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:58.037599",
+                        "event": "dispatched"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:58.037644",
+                        "event": "queued_for_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:58.037767",
+                        "event": "reached_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:58.037818",
+                        "event": "started"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:59.727502",
+                        "event": "commit_sent"
+                    },
+                    {
+                        "time": "2020-03-02 13:50:59.727584",
+                        "event": "done"
+                    }
+                ]
+            }
+        },
+        {
+            "description": "osd_op(client.4294.0:59 4.19 4:99dd276f:::benchmark_data_loewe_23988_object58:head [set-alloc-hint object_size 4194304 write_size 4194304,write 0~4194304] snapc 0=[] ondisk+write+known_if_redirected e26)",
+            "initiated_at": "2020-03-02 13:51:00.416499",
+            "age": 355.80674909800001,
+            "duration": 1.673222057,
+            "type_data": {
+                "flag_point": "commit sent; apply or cleanup",
+                "client_info": {
+                    "client": "client.4294",
+                    "client_addr": "10.161.8.192:0/766400216",
+                    "tid": 59
+                },
+                "events": [
+                    {
+                        "time": "2020-03-02 13:51:00.416499",
+                        "event": "initiated"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:00.416499",
+                        "event": "header_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:00.413380",
+                        "event": "throttled"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:00.416521",
+                        "event": "all_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:00.416525",
+                        "event": "dispatched"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:00.416565",
+                        "event": "queued_for_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:00.416681",
+                        "event": "reached_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:00.416970",
+                        "event": "started"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:00.417320",
+                        "event": "waiting for subops from 1,2"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:01.491786",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:01.491804",
+                        "event": "op_commit"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:02.089574",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:02.089630",
+                        "event": "commit_sent"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:02.089721",
+                        "event": "done"
+                    }
+                ]
+            }
+        },
+        {
+            "description": "osd_repop(client.4294.0:68 4.2d e26/24 4:b4106463:::benchmark_data_loewe_23988_object67:head v 26'1)",
+            "initiated_at": "2020-03-02 13:51:01.024061",
+            "age": 355.199186457,
+            "duration": 1.8999691949999999,
+            "type_data": {
+                "flag_point": "commit sent; apply or cleanup",
+                "events": [
+                    {
+                        "time": "2020-03-02 13:51:01.024061",
+                        "event": "initiated"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:01.024061",
+                        "event": "header_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:01.021396",
+                        "event": "throttled"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:01.024087",
+                        "event": "all_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:01.024093",
+                        "event": "dispatched"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:01.024136",
+                        "event": "queued_for_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:01.231820",
+                        "event": "reached_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:01.231872",
+                        "event": "started"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:02.923928",
+                        "event": "commit_sent"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:02.924030",
+                        "event": "done"
+                    }
+                ]
+            }
+        },
+        {
+            "description": "osd_op(client.4294.0:104 4.2a 4:5435abac:::benchmark_data_loewe_23988_object103:head [set-alloc-hint object_size 4194304 write_size 4194304,write 0~4194304] snapc 0=[] ondisk+write+known_if_redirected e26)",
+            "initiated_at": "2020-03-02 13:51:03.983638",
+            "age": 352.23961009800001,
+            "duration": 1.620556458,
+            "type_data": {
+                "flag_point": "commit sent; apply or cleanup",
+                "client_info": {
+                    "client": "client.4294",
+                    "client_addr": "10.161.8.192:0/766400216",
+                    "tid": 104
+                },
+                "events": [
+                    {
+                        "time": "2020-03-02 13:51:03.983638",
+                        "event": "initiated"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:03.983638",
+                        "event": "header_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:03.980884",
+                        "event": "throttled"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:03.983657",
+                        "event": "all_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:03.983661",
+                        "event": "dispatched"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:03.983699",
+                        "event": "queued_for_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:04.173355",
+                        "event": "reached_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:04.173579",
+                        "event": "started"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:04.173812",
+                        "event": "waiting for subops from 1,2"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:04.862824",
+                        "event": "op_commit"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:05.485937",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:05.604094",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:05.604132",
+                        "event": "commit_sent"
+                    },
+                    {
+                        "time": "2020-03-02 13:51:05.604194",
+                        "event": "done"
+                    }
+                ]
+            }
+        },
+        {
+            "description": "osd_op(client.4313.0:6 4.1e 4:79be185e:::benchmark_data_loewe_24231_object5:head [set-alloc-hint object_size 4194304 write_size 4194304,write 0~4194304] snapc 0=[] ondisk+write+known_if_redirected e26)",
+            "initiated_at": "2020-03-02 13:55:49.530765",
+            "age": 66.692482537999993,
+            "duration": 2.1528774570000002,
+            "type_data": {
+                "flag_point": "commit sent; apply or cleanup",
+                "client_info": {
+                    "client": "client.4313",
+                    "client_addr": "10.161.8.192:0/1410635982",
+                    "tid": 6
+                },
+                "events": [
+                    {
+                        "time": "2020-03-02 13:55:49.530765",
+                        "event": "initiated"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:49.530765",
+                        "event": "header_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:49.527171",
+                        "event": "throttled"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:49.530786",
+                        "event": "all_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:49.530791",
+                        "event": "dispatched"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:49.530830",
+                        "event": "queued_for_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:49.530926",
+                        "event": "reached_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:49.531149",
+                        "event": "started"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:49.531356",
+                        "event": "waiting for subops from 1,2"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:50.638496",
+                        "event": "op_commit"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:50.652565",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:51.683554",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:51.683578",
+                        "event": "commit_sent"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:51.683643",
+                        "event": "done"
+                    }
+                ]
+            }
+        },
+        {
+            "description": "osd_op(client.4313.0:14 4.37 4:eee2261c:::benchmark_data_loewe_24231_object13:head [set-alloc-hint object_size 4194304 write_size 4194304,write 0~4194304] snapc 0=[] ondisk+write+known_if_redirected e26)",
+            "initiated_at": "2020-03-02 13:55:49.537051",
+            "age": 66.686196460999994,
+            "duration": 2.1463228939999999,
+            "type_data": {
+                "flag_point": "commit sent; apply or cleanup",
+                "client_info": {
+                    "client": "client.4313",
+                    "client_addr": "10.161.8.192:0/1410635982",
+                    "tid": 14
+                },
+                "events": [
+                    {
+                        "time": "2020-03-02 13:55:49.537051",
+                        "event": "initiated"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:49.537051",
+                        "event": "header_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:49.534120",
+                        "event": "throttled"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:49.537069",
+                        "event": "all_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:49.537073",
+                        "event": "dispatched"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:49.537112",
+                        "event": "queued_for_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:50.301134",
+                        "event": "reached_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:50.301369",
+                        "event": "started"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:50.301647",
+                        "event": "waiting for subops from 1,2"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:51.123462",
+                        "event": "op_commit"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:51.129342",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:51.683221",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:51.683280",
+                        "event": "commit_sent"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:51.683374",
+                        "event": "done"
+                    }
+                ]
+            }
+        },
+        {
+            "description": "osd_repop(client.4313.0:8 4.d e26/24 4:b37d4225:::benchmark_data_loewe_24231_object7:head v 26'3)",
+            "initiated_at": "2020-03-02 13:55:49.549765",
+            "age": 66.673483058000002,
+            "duration": 2.1328498709999999,
+            "type_data": {
+                "flag_point": "commit sent; apply or cleanup",
+                "events": [
+                    {
+                        "time": "2020-03-02 13:55:49.549765",
+                        "event": "initiated"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:49.549765",
+                        "event": "header_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:49.547113",
+                        "event": "throttled"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:49.549782",
+                        "event": "all_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:49.549786",
+                        "event": "dispatched"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:49.549819",
+                        "event": "queued_for_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:50.426821",
+                        "event": "reached_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:50.426879",
+                        "event": "started"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:51.682548",
+                        "event": "commit_sent"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:51.682615",
+                        "event": "done"
+                    }
+                ]
+            }
+        },
+        {
+            "description": "osd_op(client.4313.0:30 4.0 4:03ebcfe7:::benchmark_data_loewe_24231_object29:head [set-alloc-hint object_size 4194304 write_size 4194304,write 0~4194304] snapc 0=[] ondisk+write+known_if_redirected e26)",
+            "initiated_at": "2020-03-02 13:55:51.696997",
+            "age": 64.526250954000005,
+            "duration": 1.7761624469999999,
+            "type_data": {
+                "flag_point": "commit sent; apply or cleanup",
+                "client_info": {
+                    "client": "client.4313",
+                    "client_addr": "10.161.8.192:0/1410635982",
+                    "tid": 30
+                },
+                "events": [
+                    {
+                        "time": "2020-03-02 13:55:51.696997",
+                        "event": "initiated"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:51.696997",
+                        "event": "header_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:51.694208",
+                        "event": "throttled"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:51.697016",
+                        "event": "all_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:51.697020",
+                        "event": "dispatched"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:51.697060",
+                        "event": "queued_for_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:51.988571",
+                        "event": "reached_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:51.988892",
+                        "event": "started"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:51.989211",
+                        "event": "waiting for subops from 1,2"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:52.642035",
+                        "event": "op_commit"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:53.400613",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:53.473033",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:53.473080",
+                        "event": "commit_sent"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:53.473159",
+                        "event": "done"
+                    }
+                ]
+            }
+        },
+        {
+            "description": "osd_op(client.4313.0:41 4.37 4:efa2a9db:::benchmark_data_loewe_24231_object40:head [set-alloc-hint object_size 4194304 write_size 4194304,write 0~4194304] snapc 0=[] ondisk+write+known_if_redirected e26)",
+            "initiated_at": "2020-03-02 13:55:52.648559",
+            "age": 63.574688354999999,
+            "duration": 1.677577933,
+            "type_data": {
+                "flag_point": "commit sent; apply or cleanup",
+                "client_info": {
+                    "client": "client.4313",
+                    "client_addr": "10.161.8.192:0/1410635982",
+                    "tid": 41
+                },
+                "events": [
+                    {
+                        "time": "2020-03-02 13:55:52.648559",
+                        "event": "initiated"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:52.648559",
+                        "event": "header_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:52.645801",
+                        "event": "throttled"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:52.648586",
+                        "event": "all_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:52.648591",
+                        "event": "dispatched"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:52.648643",
+                        "event": "queued_for_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:52.648767",
+                        "event": "reached_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:52.649034",
+                        "event": "started"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:52.649311",
+                        "event": "waiting for subops from 1,2"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:53.577474",
+                        "event": "op_commit"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:54.123145",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:54.326042",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:54.326069",
+                        "event": "commit_sent"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:54.326137",
+                        "event": "done"
+                    }
+                ]
+            }
+        },
+        {
+            "description": "osd_op(client.4313.0:88 4.17 4:ea11550f:::benchmark_data_loewe_24231_object87:head [set-alloc-hint object_size 4194304 write_size 4194304,write 0~4194304] snapc 0=[] ondisk+write+known_if_redirected e26)",
+            "initiated_at": "2020-03-02 13:55:56.228692",
+            "age": 59.994555775999999,
+            "duration": 1.626136357,
+            "type_data": {
+                "flag_point": "commit sent; apply or cleanup",
+                "client_info": {
+                    "client": "client.4313",
+                    "client_addr": "10.161.8.192:0/1410635982",
+                    "tid": 88
+                },
+                "events": [
+                    {
+                        "time": "2020-03-02 13:55:56.228692",
+                        "event": "initiated"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:56.228692",
+                        "event": "header_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:56.225181",
+                        "event": "throttled"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:56.228725",
+                        "event": "all_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:56.228732",
+                        "event": "dispatched"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:56.228791",
+                        "event": "queued_for_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:57.048846",
+                        "event": "reached_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:57.049144",
+                        "event": "started"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:57.049485",
+                        "event": "waiting for subops from 1,2"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:57.853947",
+                        "event": "op_commit"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:57.854386",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:57.854751",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:57.854770",
+                        "event": "commit_sent"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:57.854828",
+                        "event": "done"
+                    }
+                ]
+            }
+        },
+        {
+            "description": "osd_op(client.4313.0:113 4.3b 4:ddc4d811:::benchmark_data_loewe_24231_object112:head [set-alloc-hint object_size 4194304 write_size 4194304,write 0~4194304] snapc 0=[] ondisk+write+known_if_redirected e26)",
+            "initiated_at": "2020-03-02 13:55:57.860502",
+            "age": 58.362746092999998,
+            "duration": 1.7278003479999999,
+            "type_data": {
+                "flag_point": "commit sent; apply or cleanup",
+                "client_info": {
+                    "client": "client.4313",
+                    "client_addr": "10.161.8.192:0/1410635982",
+                    "tid": 113
+                },
+                "events": [
+                    {
+                        "time": "2020-03-02 13:55:57.860502",
+                        "event": "initiated"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:57.860502",
+                        "event": "header_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:57.856621",
+                        "event": "throttled"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:57.860534",
+                        "event": "all_read"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:57.860541",
+                        "event": "dispatched"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:57.860608",
+                        "event": "queued_for_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:58.728606",
+                        "event": "reached_pg"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:58.728889",
+                        "event": "started"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:58.729174",
+                        "event": "waiting for subops from 1,2"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:59.587672",
+                        "event": "op_commit"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:59.587957",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:59.588179",
+                        "event": "sub_op_commit_rec"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:59.588223",
+                        "event": "commit_sent"
+                    },
+                    {
+                        "time": "2020-03-02 13:55:59.588302",
+                        "event": "done"
+                    }
+                ]
+            }
+        }
+    ]
+}
