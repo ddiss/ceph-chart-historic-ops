@@ -4015,27 +4015,6 @@ var data = {
 	datasets: [],
 };
 
-function data_val_lookup(xval_i, yval) {
-	var dses = data['datasets'];
-	if (dses.length <= 0) {
-		return null;
-	}
-
-	for (var i = 0, ds; ds = dses[i]; i++) {
-		var vals = ds['values'];
-		if (vals.length <= xval_i) {
-			continue;
-		}
-		if (vals[xval_i] == yval) {
-			var op = ds['ops'][xval_i];
-			// console.log('found op at %o, %o: %o', xval_i, yval, op);
-			return op;
-		}
-	}
-	// console.log('failed to lookup op at %o, %o', xval_i, yval);
-	return null;
-}
-
 function pad_slice(num, pad_num) {
 	n = num.toString()
 	if (n.length > pad_num) {
@@ -4044,7 +4023,7 @@ function pad_slice(num, pad_num) {
 	return n.padStart(pad_num, '0');
 }
 
-function op_detail_chart(op) {
+function op_detail_chart(op, chart_el) {
 	// need more than 1 event, as we're interested in time deltas
 	if (!op.hasOwnProperty('type_data')
 	 || !op.hasOwnProperty('description')) {
@@ -4126,38 +4105,48 @@ function op_detail_chart(op) {
 			odata, remainder);
 	}
 
-	div_el = document.getElementById('detail-chart');
-	var detail_chart = new Chart(div_el,
+	var detail_chart = new Chart(chart_el,
 		{
 			title: op['description'],
 			type: 'percentage',
 			animate: 1,
 			data: odata,
+			truncateLegends: 1,
 		});
-	div_el.scrollIntoView();
 	return detail_chart;
 }
 
+
+// selection covers all y-points at xval_i
+// frappe incorrectly gives us an event for each y-point!
+// TODO: ignore duplicate events instead of removing + reappending
 function data_select_handle(e) {
-	//console.log('selected datapoint %o', e);
+	console.log('selected datapoint %o', e);
 	var xval_i = e['index'];
-	// it'd be much more efficient if e included ds values entry
-	var yvals = e['values'];
 
-	if (yvals.length <= 0) {
-		return;
-	}
-	if (yvals.length > 1) {
-		console.log('multiple yvals selected, using first');
-	}
-	var yval = yvals[0];
-
-	var op = data_val_lookup(xval_i, yval);
-	if (op == null) {
+	var dses = data['datasets'];
+	if (dses.length <= 0) {
 		return;
 	}
 
-	op_detail_chart(op);
+	// clean up any existing charts
+	var subel = document.getElementById('detail-chart');
+	while (subel.firstChild) {
+		subel.removeChild(subel.lastChild);
+	}
+
+	for (var i = 0, ds; ds = dses[i]; i++) {
+		subel = document.createElement("div");
+		document.getElementById('detail-chart').appendChild(subel);
+
+		var vals = ds['values'];
+		if (vals.length <= xval_i) {
+			continue;
+		}
+
+		op_detail_chart(ds['ops'][xval_i], subel);
+	}
+	document.getElementById('detail-chart').scrollIntoView();
 }
 
 function data_add_ds(ds_prefix) {
