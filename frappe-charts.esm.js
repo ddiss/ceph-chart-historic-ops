@@ -4038,7 +4038,6 @@ function data_val_lookup(xval_i, yval) {
 
 function pad_slice(num, pad_num) {
 	n = num.toString()
-	console.log('padding num %s to %d (cur len %d)', num, pad_num, n.length);
 	if (n.length > pad_num) {
 		return n.slice(0, pad_num - n.length);
 	}
@@ -4122,7 +4121,7 @@ function op_detail_chart(op) {
 		odata['datasets'][0]['values'].push(Number(nval));
 		prev_t = t;
 	}
-	if (remainder > 0.0001) {
+	if (Math.abs(remainder) > 0.0001) {
 		console.log('%o remainder is unexpectadly high: %f',
 			odata, remainder);
 	}
@@ -4140,8 +4139,7 @@ function op_detail_chart(op) {
 }
 
 function data_select_handle(e) {
-	// e contains index and value of current datapoint
-	console.log('selected datapoint %o', e);
+	//console.log('selected datapoint %o', e);
 	var xval_i = e['index'];
 	// it'd be much more efficient if e included ds values entry
 	var yvals = e['values'];
@@ -4159,7 +4157,6 @@ function data_select_handle(e) {
 		return;
 	}
 
-	// XXX move to new event?
 	op_detail_chart(op);
 }
 
