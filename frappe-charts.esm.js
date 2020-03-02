@@ -4118,8 +4118,6 @@ function op_detail_chart(op, chart_el) {
 
 
 // selection covers all y-points at xval_i
-// frappe incorrectly gives us an event for each y-point!
-// TODO: ignore duplicate events instead of removing + reappending
 function data_select_handle(e) {
 	console.log('selected datapoint %o', e);
 	var xval_i = e['index'];
@@ -4160,21 +4158,22 @@ function data_add_ds(ds_prefix) {
 	return ds;
 }
 
-function json_process(evt) {
-	var fname = evt.detail['fname'];
-	var jsn = evt.detail['json'];
-	var p = evt.detail['pent'];
+function json_process(fname, jsn, p) {
+	if (jsn == null) {
+		return;	// error in JSON.parse already handled
+	}
+
 	p.innerHTML += ' ➡️ process ops';
 
 	if (!jsn.hasOwnProperty('ops')) {
 		p.innerHTML += ' ❌';
 		console.log('malformed json: missing ops array');
-		return null;
+		return;
 	}
 	var ops = jsn['ops'];
 	if (ops.length <= 0) {
 		p.innerHTML += ' (empty)';
-		return null;
+		return;
 	}
 	var ds = data_add_ds(fname + ':duration');
 
@@ -4193,18 +4192,6 @@ function json_process(evt) {
 		}
 	}
 	p.innerHTML += ' ➡️ chart ✔️';
-	return new Chart("#summary-chart",
-		{
-			title: 'Ceph OSD Historic Ops',
-			type: 'line',
-			isNavigable: 1,
-			height: 600,
-			animate: 1,
-			lineOptions: { dotSize: 8, hideLine: 1 },
-			axisOptions: { xAxisMode: 'tick' },
-			data: data,
-			truncateLegends: 1,
-		});
 }
 
 function file_read_handle(p, f, lines) {
@@ -4218,7 +4205,8 @@ function file_read_handle(p, f, lines) {
 	} catch (e) {
 		console.log('failed to parse %s: %o', f.name, e.message);
 		p.innerHTML += ' ❌';
-		return
+		jsn = null;
+		// fire event on error so that await_files is still updated
 	}
 
 	var evt = new CustomEvent('json-ready',
@@ -4230,9 +4218,11 @@ function file_read_handle(p, f, lines) {
 	return files_input.dispatchEvent(evt);
 }
 
+var await_files = 0;
+
 function files_process(evt) {
 	var files = evt.target.files; // FileList object
-	var await = files.length;
+	await_files += files.length;
 	var lst = document.getElementById('list');
 
 	for (var i = 0, f; f = files[i]; i++) {
@@ -4242,11 +4232,6 @@ function files_process(evt) {
 				var p = document.createElement("p");
 				lst.appendChild(p);
 				file_read_handle(p, theFile, e.target.result);
-				await--;
-				if (await == 0) {
-					console.log("all %d file(s) parsed",
-						files.length)
-				}
 			};
 		})(f);
 		fr.readAsText(f);
@@ -4263,13 +4248,32 @@ btn.addEventListener('click', function (event) {
 files_input = document.getElementById('files');
 files_input.addEventListener('change', files_process, false);
 // we fire a custom event when json file content has been parsed
-files_input.addEventListener('json-ready', function (event) {
-	chart = json_process(event, chart);
-	// XXX should be able to check instanceof Chart instead...
-	if (chart == null) {
-		btn.style.display='none';
+files_input.addEventListener('json-ready', function (e) {
+	json_process(e.detail['fname'], e.detail['json'], e.detail['pent']);
+
+	await_files--;
+	if (await_files > 0) {
+		console.log('still awaiting %d json events', await_files);
 		return;
 	}
+	console.log('no more json events expected - rendering chart');
+	// clean up any existing chart
+	var c = document.getElementById('summary-chart');
+	while (c.firstChild) {
+		c.removeChild(c.lastChild);
+	}
+	chart = new Chart("#summary-chart",
+		{
+			title: 'Ceph OSD Historic Ops',
+			type: 'line',
+			isNavigable: 1,
+			height: 600,
+			animate: 1,
+			lineOptions: { dotSize: 8, hideLine: 1 },
+			axisOptions: { xAxisMode: 'tick' },
+			data: data,
+			truncateLegends: 1,
+		});
 	chart.parent.addEventListener('data-select', (e) => {
 		data_select_handle(e);
 	});
